@@ -147,6 +147,7 @@ function App() {
         setAllProfile(profiles);
       });
     };
+
     fetchAllProfile();
     return () => {
       allProfileUnsubscribe && allProfileUnsubscribe();
