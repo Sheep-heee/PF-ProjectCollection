@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -7,7 +8,7 @@ const Wrapper = styled.div`
 `;
 
 const EllipsisText = styled.div`
-  font-size: var(--font-14);
+  font-size: var(--font-16);
   color: ${({ theme }) => theme.fontColor};
 
   ${({ $showMore }) =>
@@ -25,7 +26,7 @@ const EllipsisText = styled.div`
   }
 
   @media screen and (max-width: 1024px) {
-    font-size: var(--font-12);
+    font-size: var(--font-14);
   }
 `;
 
@@ -39,7 +40,7 @@ const OriginalText = styled.div`
   }
 
   @media screen and (max-width: 1024px) {
-    font-size: var(--font-12);
+    font-size: var(--font-14);
   }
 `;
 
@@ -50,7 +51,7 @@ const MoreText = styled.span`
   shape-outside: border-box;
   cursor: pointer;
   @media screen and (max-width: 1024px) {
-    font-size: var(--font-12);
+    font-size: var(--font-14);
     margin: 25px 10px 0;
   }
 `;
@@ -59,7 +60,7 @@ const HashTag = styled.span`
   color: ${({ theme }) => theme.subColor};
   cursor: pointer;
   @media screen and (max-width: 1024px) {
-    font-size: var(--font-12);
+    font-size: var(--font-14);
   }
 `;
 
@@ -70,11 +71,11 @@ const FeedText = ({ feedDetail, myFeed, post, all }) => {
     ? myFeed.content.split("\n")
     : post.content.split("\n");
 
+  const navigate = useNavigate();
   const [isEllipsed, setIsEllipsed] = useState(false);
   const [showMore, setShowMore] = useState(false);
   const commentRef = useRef(null);
   const originalCommentRef = useRef(null);
-
   useEffect(() => {
     if (all) {
       setShowMore(true);
@@ -104,15 +105,20 @@ const FeedText = ({ feedDetail, myFeed, post, all }) => {
         <p ref={commentRef}>
           {lines.map((it, idx) => (
             <React.Fragment key={idx}>
-              {it
-                .split(" ")
-                .map((word, idx) =>
-                  word.startsWith("#") ? (
-                    <HashTag key={idx}>{word} </HashTag>
-                  ) : (
-                    <React.Fragment key={idx}>{word} </React.Fragment>
-                  )
-                )}
+              {it.split(" ").map((word, idx) =>
+                word.startsWith("#") ? (
+                  <HashTag
+                    key={idx}
+                    onClick={() =>
+                      navigate(`/search?q=${word.toLocaleLowerCase().slice(1)}`)
+                    }
+                  >
+                    {word}{" "}
+                  </HashTag>
+                ) : (
+                  <React.Fragment key={idx}>{word} </React.Fragment>
+                )
+              )}
               <br />
             </React.Fragment>
           ))}

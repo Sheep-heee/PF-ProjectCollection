@@ -16,6 +16,7 @@ const Wrapper = styled.div`
   background: ${({ theme }) => theme.bgColor};
   box-shadow: 0 5px 6px ${({ theme }) => theme.shadowAlpha};
   margin-top: 45px;
+  overflow: hidden;
   z-index: 1;
   @media screen and (max-width: 1024px) {
     right: 0;
@@ -57,8 +58,8 @@ const NotificationList = styled.ul`
 const itemArray = [
   {
     id: "notification01",
-    type: "like",
-    feedbackUser: "lotte_ria",
+    type: "notice",
+    feedbackUser: "",
     url: "/images/userImgs/user123456/followed_1.jpg",
   },
   {

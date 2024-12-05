@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { IoPaperPlaneOutline } from "react-icons/io5";
 import { HiOutlineUserPlus } from "react-icons/hi2";
+import { dontReady } from "../../utils/utils";
 
 const ButtonItem = styled.button`
   width: ${({ $width }) => `${$width}` || "auto"};
@@ -54,7 +55,7 @@ const Button = ({ width, height, text, fontSize, type, onClick, followed }) => {
       $height={height}
       fontSize={fontSize}
       type={type}
-      onClick={onClick && handleOnClick}
+      onClick={onClick ? handleOnClick : dontReady}
       $followed={followed}
     >
       <MesseageBtn $followed={followed}>

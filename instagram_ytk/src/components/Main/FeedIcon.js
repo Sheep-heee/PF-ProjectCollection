@@ -14,6 +14,7 @@ import {
 } from "react-icons/io5";
 import { db } from "../../utils/firebase";
 import { doc, updateDoc } from "firebase/firestore";
+import { dontReady } from "../../utils/utils";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -176,7 +177,7 @@ const FeedIcon = ({ feedDetail, onClick, type }) => {
     const profileData = allProfile.find((it) => it.uid === likeFollowing);
     setFollowingUser(profileData);
   }, [feedDetail]);
-  
+
   const toggleHeart = () => {
     if (fillHeart) {
       setLikes(likes.filter((it) => it !== myProfile.uid));
@@ -249,7 +250,7 @@ const FeedIcon = ({ feedDetail, onClick, type }) => {
               </LikeSection>
             </LeftIcons>
             <RightIcons>
-              <Message $type={type} />
+              <Message $type={type} onClick={dontReady} />
               {fillBookmark ? (
                 <BookmarkFill $type={type} onClick={toggleBookmark} />
               ) : (
@@ -268,7 +269,7 @@ const FeedIcon = ({ feedDetail, onClick, type }) => {
                 <Heart onClick={toggleHeart} />
               )}
               <Reply onClick={onClick} />
-              <Message />
+              <Message onClick={dontReady} />
             </LeftIcons>
             {fillBookmark ? (
               <BookmarkFill onClick={toggleBookmark} />

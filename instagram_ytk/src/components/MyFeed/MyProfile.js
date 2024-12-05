@@ -88,10 +88,6 @@ const MyIntro = styled.div`
   padding: 30px 70px;
   font-size: var(--font-16);
 
-  /* @media screen and (max-width: 900px) {
-    padding: 10px 50px 10px;
-  } */
-
   @media screen and (max-width: 900px) {
     padding: 25px 20px 25px 50px;
     font-size: var(--font-14);
@@ -125,12 +121,14 @@ const MyProfile = ({ userId }) => {
             <p>{feedProfile?.userId}</p>
             <span>{feedProfile?.userName}</span>
           </MyName>
-          <EditBtn onClick={onClick}>
-            {isOpen ? (
-              <Setup onClick={onClick} myProfile={feedProfile} />
-            ) : null}
-            <FaGear />
-          </EditBtn>
+          {userId ? null : (
+            <EditBtn onClick={onClick}>
+              {isOpen ? (
+                <Setup onClick={onClick} myProfile={feedProfile} />
+              ) : null}
+              <FaGear />
+            </EditBtn>
+          )}
         </NameBox>
         <MyIntro>{feedProfile?.introduction}</MyIntro>
         <MbButtons myProfile={feedProfile} />

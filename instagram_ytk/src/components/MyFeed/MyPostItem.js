@@ -46,6 +46,7 @@ const MyPostItem = ({ size, url, page, onClick }) => {
     <Wrapper page={page}>
       <Box>
         {url &&
+        onClick &&
         Array.isArray(url) &&
         url.length > 0 &&
         videoArr.includes(extractExtension(url[0])) ? (

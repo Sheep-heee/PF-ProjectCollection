@@ -12217,7 +12217,10 @@
           "feedId": "fd00000100",
           "createDate": "2024-10-16",
           "type": "img",
-          "imgPath": ["images/userImgs/0aDoIgvbfsQYBX20nWRnuOkNrNh"],
+          "imgPath": [
+            "images/userImgs/0aDoIgvbfsQYBX20nWRnuOkNrNh/feed11.jpg",
+            "images/userImgs/0aDoIgvbfsQYBX20nWRnuOkNrNh/feed12.jpg"
+          ],
           "content": "캣휠 타는 법 가르치는 중 #고양이 #캣휠 #수제캣휠",
           "hashtag": ["#고양이", "#캣휠", "#수제캣휠"],
           "location": "양어장 구석",

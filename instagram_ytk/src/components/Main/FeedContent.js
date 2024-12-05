@@ -158,7 +158,6 @@ const FeedContent = () => {
                 };
               })
           );
-
           setPostsWithProfiles(posts);
           setIsLoading(false);
         });

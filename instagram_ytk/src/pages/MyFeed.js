@@ -63,38 +63,44 @@ const MyFeed = ({ userId }) => {
         limit(25)
       );
 
-      unsubscribe = await onSnapshot(postQuery, (snapshot) => {
-        const fetchedPosts = snapshot.docs.map((doc) => {
-          const feedProfile = allProfile.find(
-            (it) => it.uid === doc.data().uid
-          );
-          const {
-            content,
-            createdAt,
-            hastage,
-            like,
-            location,
-            tagUser,
-            uid,
-            imgPath,
-            type,
-          } = doc.data();
-          return {
-            id: doc.id,
-            content,
-            createdAt,
-            hastage,
-            like,
-            location,
-            tagUser,
-            uid,
-            imgPath,
-            type,
-            profile: feedProfile,
-          };
-        });
-        setPosts(fetchedPosts); // posts 상태 업데이트
-      });
+      unsubscribe = await onSnapshot(
+        postQuery,
+        (snapshot) => {
+          const fetchedPosts = snapshot.docs.map((doc) => {
+            const feedProfile = allProfile.find(
+              (it) => it.uid === doc.data().uid
+            );
+            const {
+              content,
+              createdAt,
+              hastage,
+              like,
+              location,
+              tagUser,
+              uid,
+              imgPath,
+              type,
+            } = doc.data();
+            return {
+              id: doc.id,
+              content,
+              createdAt,
+              hastage,
+              like,
+              location,
+              tagUser,
+              uid,
+              imgPath,
+              type,
+              profile: feedProfile,
+            };
+          });
+          setPosts(fetchedPosts);
+        },
+        (error) => {
+          console.error("Firestore onSnapshot error:", error);
+        }
+      );
     };
     fetchPosts();
 

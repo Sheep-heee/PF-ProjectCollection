@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { auth } from "../../../utils/firebase";
+import { dontReady } from "../../../utils/utils";
 
 const Wrapper = styled.div`
   background: ${({ theme }) => theme.bgColor};
@@ -55,6 +56,8 @@ const MoreItem = ({
       setOpenMore(false);
     } else if (text === "삭제") {
       onClick();
+    } else {
+      dontReady();
     }
   };
 

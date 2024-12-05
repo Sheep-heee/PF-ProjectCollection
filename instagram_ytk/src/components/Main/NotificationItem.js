@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import ProfileImg from "../Profile/ProfileImg";
-import UserId from "../User/UserId";
 import Button from "../Common/Button";
+import { dontReady } from "../../utils/utils";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -45,17 +45,21 @@ const NotificationItem = ({
   comment,
 }) => {
   return (
-    <Wrapper>
+    <Wrapper onClick={dontReady}>
       <UserDetail>
         <ProfileImg size={50} url={url} hover={"noHover"} />
         <UserDesc>
           <Text>
-            {feedbackUser} 님이{" "}
-            {type === "like"
-              ? "회원님의 게시물을 좋아합니다."
-              : type === "follow"
-              ? "회원님을 팔로우하기 시작했습니다."
-              : `댓글을 남겼습니다. ${userNickName} ${comment}`}
+            {type === "notice"
+              ? "현재 알림창은 목업으로만 구현되어 있습니다."
+              : `${feedbackUser} 님이
+            ${
+              type === "like"
+                ? "회원님의 게시물을 좋아합니다."
+                : type === "follow"
+                ? "회원님을 팔로우하기 시작했습니다."
+                : `댓글을 남겼습니다. ${userNickName} ${comment}`
+            }`}
           </Text>
           {type === "follow" ? (
             <Button

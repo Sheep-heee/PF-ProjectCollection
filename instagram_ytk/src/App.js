@@ -5,18 +5,15 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import GlobalStyles from "./styles/GlobalStyles";
 import Main from "./pages/Main";
 import Detail from "./pages/Detail";
-import MyFeed from "./pages/MyFeed";
 import Login from "./pages/Login";
 import Search from "./pages/Search";
 import Layout from "./components/Layout";
-import New from "./pages/New";
 import Loading from "./components/Common/Loading";
 import ClickStory from "./components/Story/ClickStory";
 
 import Setup from "./pages/Setup";
 import Signup from "./pages/Signup";
 import ProtectedPage from "./components/ProtectedPage";
-import SetStorage from "./pages/SetStorage";
 
 import { auth, db } from "./utils/firebase";
 import {
@@ -59,14 +56,6 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Detail />,
-      },
-      {
-        path: "new",
-        element: <New />,
-      },
-      {
-        path: "myfeed",
-        element: <MyFeed />,
       },
       {
         path: "setup",
@@ -113,10 +102,6 @@ const router = createBrowserRouter([
         <FindPw />
       </NotLoggedIn>
     ),
-  },
-  {
-    path: "/setStorage",
-    element: <SetStorage />,
   },
 ]);
 
