@@ -32,6 +32,7 @@ const CommentAndHeart = styled.div`
   gap: 15px;
   .comment-box {
     flex: 1;
+    line-height: 1.3;
   }
 `;
 

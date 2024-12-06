@@ -9,7 +9,6 @@ import Button from "../Common/Button";
 import { mouseon } from "../../utils/utils";
 import {
   collection,
-  limit,
   onSnapshot,
   orderBy,
   query,
@@ -26,14 +25,9 @@ const Wrapper = styled(motion.div)`
   box-shadow: 0 0 20px ${({ theme }) => theme.shadowAlpha};
   background: ${({ theme }) => theme.bgColor};
   z-index: 5;
-  //position: absolute;
-  //${({ top }) => (top ? `top: ${top}px;` : "top: 22px;")}
-  //left: 0;
-  position: fixed;
-  ${({ $position }) =>
-    $position
-      ? `left: ${$position[0]}px; top: ${$position[1] + 22}px`
-      : "left:0px; top:0px;"}
+  position: absolute;
+  top: 30px;
+  left: -100%;
 `;
 
 const Userinfo = styled.div`
@@ -94,7 +88,7 @@ const extractExtension = (value) => {
   return secondSplit[secondSplit.length - 1].toLowerCase();
 };
 
-const HoverProfile = ({ type, uid, top, position }) => {
+const HoverProfile = ({ type, uid }) => {
   const { myProfile } = useContext(StateContext);
   const { allProfile } = useContext(StateContext);
   const [hoverProfile, setHoverProfile] = useState(null);
@@ -142,8 +136,6 @@ const HoverProfile = ({ type, uid, top, position }) => {
       initial="initial"
       animate="visible"
       exit="exits"
-      top={top}
-      $position={position}
     >
       <Userinfo>
         <ProfileImg

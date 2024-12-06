@@ -34,6 +34,7 @@ const CommentAndHeart = styled.div`
   .comment-box {
     flex: 1;
     font-size: var(--font-14);
+    line-height: 1.3;
   }
 `;
 
@@ -97,7 +98,7 @@ const Line = styled.span`
 `;
 
 const RereplyGroup = styled.div`
-  margin-top: 10px;
+  margin: 10px 0 15px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -112,6 +113,7 @@ const EditArea = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 10px;
 `;
 
 const EditAreaHeader = styled.div`

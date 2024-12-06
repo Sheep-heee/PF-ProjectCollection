@@ -134,6 +134,7 @@ const Wrapper = styled(motion.div)`
 
       .comment_list {
         padding: 10px;
+        line-height: 1.3;
       }
       .writing_comment {
         height: auto;
@@ -388,8 +389,12 @@ const CommentList = styled.div`
   display: ${({ $isEditing }) => ($isEditing ? "none" : "flex")};
   padding: 20px;
   flex-direction: column;
-  gap: 15px;
   overflow-x: hidden;
+  &::-webkit-scrollbar {
+    display: none; //크롬, 사파리, 오페라, 엣지
+  }
+  -ms-overflow-style: none; //인터넷 익스플로러
+  scrollbar-width: none; //파이어 폭스
 `;
 
 const WritingComment = styled.div`

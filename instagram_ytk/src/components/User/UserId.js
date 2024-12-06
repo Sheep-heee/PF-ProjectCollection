@@ -139,7 +139,6 @@ const UserId = ({
   follwed,
   btn,
   hover,
-  top,
   feed,
   onClick,
   setIsEditing,
@@ -165,10 +164,6 @@ const UserId = ({
     setHoverId(false);
   };
 
-  const handleEditing = () => {
-    onClick();
-  };
-
   return (
     <Wrapper className="user-wrapper" type={type}>
       <StyledSpan type={type}>
@@ -189,7 +184,6 @@ const UserId = ({
           {!hover && hoverId ? (
             <HoverProfile
               target={"id"}
-              top={"22"}
               type={type}
               uid={uid}
               position={position}
