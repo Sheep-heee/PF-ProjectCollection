@@ -11,7 +11,7 @@
 - 폴더명 EZEN-teamproject
 - 담당 : 메인 페이지 디자인&개발
 - HTML5, CSS, SCSS, Javascript, Firebase
-- 결과물
+- 결과물 (https://martcali.netlify.app/)
 
 &nbsp;
 
