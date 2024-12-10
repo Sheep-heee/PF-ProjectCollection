@@ -26,8 +26,11 @@ const Wrapper = styled(motion.div)`
   background: ${({ theme }) => theme.bgColor};
   z-index: 5;
   position: absolute;
-  top: 30px;
+  top: 20px;
   left: -100%;
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 const Userinfo = styled.div`

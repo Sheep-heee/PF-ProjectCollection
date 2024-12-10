@@ -165,12 +165,11 @@ const UserId = ({
   };
 
   return (
-    <Wrapper className="user-wrapper" type={type}>
+    <Wrapper className="user-wrapper" type={type} onMouseLeave={hideProfile}>
       <StyledSpan type={type}>
         <IdSpan
           className="user-id"
           onMouseEnter={showProfile}
-          onMouseLeave={hideProfile}
           onClick={() =>
             navigate({
               pathname: "/profile",

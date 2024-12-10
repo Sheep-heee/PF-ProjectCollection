@@ -386,6 +386,7 @@ const ContentDate = styled.span`
 `;
 
 const CommentList = styled.div`
+  height: 100%;
   display: ${({ $isEditing }) => ($isEditing ? "none" : "flex")};
   padding: 20px;
   flex-direction: column;
